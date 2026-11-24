@@ -1,0 +1,150 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, m;
+    cin>>n>>m;
+    char mat[n][m];
+    int contador = 0;
+    bool conte = true;
+
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            cin>>mat[i][j];
+        }
+    }
+
+    if(n==m){
+
+        //100  001 gira no eixo para direita
+        //000  000
+        //000  000
+
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                if(mat[i][j] != mat[m-j-1][i]){
+                    conte = false;
+                }
+            }
+        }
+        if(conte){
+            contador ++;
+        }
+        conte = true;
+
+
+
+        //100  000 gira no eixo para esquerda
+        //000  000
+        //000  100
+
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                if(mat[i][j] != mat[j][n-1-i]){
+                    conte = false;
+                }
+            }
+        }
+        if(conte){
+            contador ++;
+        }
+        conte = true;
+
+        //100  000 gira no eixo para direita e translada
+        //000  000
+        //000  100
+
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                if(mat[i][j] != mat[j][i]){
+                    conte = false;
+                }
+            }
+        }
+        if(conte){
+            contador ++;
+        }
+        conte = true;
+
+        //100  000 gira no eixo para esquerda e translada
+        //000  000
+        //000  100
+
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                if(mat[i][j] != mat[m-1-j][n-i-1]){
+                    conte = false;
+                }
+            }
+        }
+        if(conte){
+            contador ++;
+        }
+        conte = true;
+
+    }
+
+
+    //100  100 ele com ele mesmo
+    //000  000
+
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            if(mat[i][j] != mat[i][j]){
+                conte = false;
+            }
+        }
+    }
+    if(conte){
+        contador ++;
+    }
+    conte = true;
+
+    //100  001 troca lado horizontalmente
+    //000  000
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            if(mat[i][j] != mat[i][m-j-1]){
+                conte = false;
+            }
+        }
+    }
+    if(conte){
+        contador ++;
+    }
+    conte = true;
+
+    //100  000 troca lado verticalmente
+    //000  100
+     for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            if(mat[i][j] != mat[n-i-1][j]){
+                conte = false;
+            }
+        }
+    }
+    if(conte){
+        contador ++;
+    }
+    conte = true;
+
+    //100  000 troca lado vertical e horizontal
+    //000  001
+     for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            if(mat[i][j] != mat[n-i-1][m-j-1]){
+                conte = false;
+            }
+        }
+    }
+    if(conte){
+        contador ++;
+    }
+    conte = true;
+
+    cout<<contador<<endl;
+
+    return 0;
+}
