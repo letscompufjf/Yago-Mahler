@@ -1,0 +1,28 @@
+//https://codeforces.com/problemset/problem/4/C
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin>>n;
+    map<string, int> reg;
+    string s;
+
+    while(n--){
+        cin>> s;
+        if(reg.count(s)){
+            reg[s]++;
+            s+=to_string(reg[s]);
+            cout<<s<<endl;
+        }else{
+            reg[s];
+            cout<<"OK"<<endl;
+        }
+    }
+    return 0;
+}
