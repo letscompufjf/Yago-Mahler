@@ -1,0 +1,27 @@
+//https://codeforces.com/problemset/problem/71/A
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin>>n;
+    string s;
+
+    int i = 0;
+    while(i<n){
+    cin>>s;
+    if(s.size()>10){
+        cout<<s[0]<< (s.size()-2)<<s.back()<<'\n';
+    }else{
+        cout<<s<<'\n';
+    }
+    i++;
+    }
+
+    return 0;
+}
